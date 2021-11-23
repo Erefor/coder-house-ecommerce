@@ -1,0 +1,27 @@
+nav{
+    position: fixed;
+    top: 0;
+    background-color: aliceblue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+ul > li {
+    padding: 0 20px;
+}
+a{
+    text-decoration: none;
+    color: #282c34;
+}
+a:hover{
+    border-bottom: solid 2px #282c34;
+}
