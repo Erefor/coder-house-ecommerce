@@ -1,0 +1,7 @@
+.shopping-cart{
+    color: #282c34;
+    cursor: pointer;
+}
+.shopping-cart:hover{
+    border-bottom: solid 2px #282c34;
+}

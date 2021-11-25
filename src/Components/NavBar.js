@@ -1,3 +1,4 @@
+import CartWidget from "./CartWidget";
 import './NavBar.css'
 export default function NavBar() {
     return(
@@ -8,6 +9,7 @@ export default function NavBar() {
                 <li><a href="https://github.com/Erefor" target={"_blank"} rel={"noreferrer"}>Productos</a></li>
                 <li><a href="https://github.com/Erefor" target={"_blank"} rel={"noreferrer"}>Contacto</a></li>
                 <li><a href="https://github.com/Erefor" target={"_blank"} rel={"noreferrer"}>Baúl</a></li>
+                <li><CartWidget /></li>
             </ul>
         </nav>
     )
