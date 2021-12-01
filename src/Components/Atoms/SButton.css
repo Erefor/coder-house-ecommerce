@@ -1,0 +1,18 @@
+.size{ height: 40px; cursor: pointer }
+.size:hover{ opacity: 0.8 }
+.primary{
+    background-color: #282c34;
+    color: aliceblue;
+    font-weight: 600;
+}
+.flat{
+    background: none;
+    color: #282c34;
+    font-weight: 600;
+    border: none;
+}
+
+/*Border radius*/
+.normal{ border-radius: 3px; }
+.rounded{ border-radius: 15px; }
+.full{ border-radius: 100%; }
