@@ -1,4 +1,4 @@
-import SButton from "./Atoms/SButton";
+import SButton from "../Atoms/SButton";
 import './ItemCount.css'
 import {useState} from "react";
 

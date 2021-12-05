@@ -2,12 +2,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 350px;
+    width: 100%;
     background-color: #f0f8ff;
 }
 .itemCount .buttons{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
 }

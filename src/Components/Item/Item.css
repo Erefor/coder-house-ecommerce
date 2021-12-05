@@ -1,0 +1,43 @@
+.item{
+    background-color: #282c34;
+    height: 300px;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 10px 17px 0 rgba(0,0,0,0.75);
+}
+.title-container{
+    position: relative;
+    height: 300px;
+    width: 350px;
+    overflow: hidden;
+}
+.movie-image{
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.movie-title{
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: rgba(40, 44, 52, 0.36);
+    color: aliceblue;
+    max-width: 175px;
+    max-height: 98px;
+    text-overflow: ellipsis;
+}
+.movie-price{
+    color: #282c34;
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    background-color: aliceblue;
+}
