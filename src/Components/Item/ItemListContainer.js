@@ -7,7 +7,6 @@ export default function ItemListContainer({greeting, items}) {
     async function getMovies() {
         const moviesResp = await fetch('https://ghibliapi.herokuapp.com/films')
         const decodeResp = await moviesResp.json()
-        console.log(decodeResp)
         setMovies(decodeResp)
     }
     useEffect(() => {

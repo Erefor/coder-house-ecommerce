@@ -8,7 +8,6 @@ export default function Item({item}) {
         try {
             const resp = await fetch(`${item.url}`)
             const decodeResp = await resp.json()
-            console.log(decodeResp.image)
             setImage(decodeResp.image)
         } catch (e) {
             setImage('https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png')
