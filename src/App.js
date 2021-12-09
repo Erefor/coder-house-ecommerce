@@ -1,12 +1,10 @@
 import './App.css';
-import NavBar from "./Components/NavBar";
-import ItemListContainer from "./Components/Item/ItemListContainer";
+import AppRouter from "./Router";
 
 function App() {
   return (
     <div className="App">
-        <NavBar texto={'Se manda desde app'}/>
-        <ItemListContainer greeting="Bienvenido a mi tienda" />
+        <AppRouter />
     </div>
   );
 }

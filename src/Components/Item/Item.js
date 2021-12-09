@@ -2,6 +2,7 @@
 import ItemCount from "./ItemCount";
 import './Item.css'
 import {useEffect, useState} from "react";
+import { Link } from 'react-router-dom'
 export default function Item({item}) {
     const [image, setImage] = useState('https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png')
     async function getMovieImage() {
@@ -18,13 +19,13 @@ export default function Item({item}) {
 
     }, [])
     return (
-        <div className="item">
+        <Link to={`/item/${item.id}`} className="item">
             <div className="title-container">
                 <h2 className="movie-title">{item.original_title_romanised}</h2>
                 <img src={image} alt="Movie" className="movie-image"/>
                 <h4 className="movie-price">{`$${item.release_date}.00`}</h4>
             </div>
             <ItemCount stock={parseInt(item.running_time, 10)}/>
-        </div>
+        </Link>
     )
 }
