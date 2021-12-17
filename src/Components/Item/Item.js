@@ -19,13 +19,13 @@ export default function Item({item}) {
 
     }, [])
     return (
-        <Link to={`/item/${item.id}`} className="item">
-            <div className="title-container">
+        <div  className="item">
+            <Link to={`/item/${item.id}`} className="title-container">
                 <h2 className="movie-title">{item.original_title_romanised}</h2>
                 <img src={image} alt="Movie" className="movie-image"/>
                 <h4 className="movie-price">{`$${item.release_date}.00`}</h4>
-            </div>
+            </Link>
             <ItemCount stock={parseInt(item.running_time, 10)}/>
-        </Link>
+        </div>
     )
 }
