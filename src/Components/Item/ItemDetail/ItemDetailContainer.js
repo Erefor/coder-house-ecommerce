@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './ItemDetailContainer.css'
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import ItemCount from "../ItemCount";
@@ -21,6 +21,7 @@ export default function ItemDetailContainer() {
     }, [])
     return (
         <div className="item-detail-container">
+            <Link to="/cart">Terminar compra</Link>
             {movie && (<ItemDetail movieData={movie}/>)}
             {movie && <ItemCount stock={parseInt(movie.running_time, 10)} onAdd={getSelectedItems}/>}
         </div>
