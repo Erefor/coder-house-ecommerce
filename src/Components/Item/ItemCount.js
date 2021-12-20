@@ -20,6 +20,10 @@ export default function ItemCount({stock, initial, onAdd}) {
         }
         setInitialCount(count-1)
     }
+
+    function emitCount() {
+        onAdd(count)
+    }
     return <div className="itemCount">
         <div className="buttons">
             <SButton clickFunction={remove} text="Remover" variant="primary"/>
@@ -27,6 +31,6 @@ export default function ItemCount({stock, initial, onAdd}) {
             <SButton clickFunction={add} text="Agregar" variant="primary"/>
         </div>
         <p><strong>{count}</strong></p>
-        <SButton text="Agregar al carrito"/>
+        <SButton text="Agregar al carrito" clickFunction={emitCount}/>
     </div>;
 }
