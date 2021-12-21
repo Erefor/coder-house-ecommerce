@@ -4,17 +4,18 @@ import {useParams, Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import ItemCount from "../ItemCount";
+import {CartConsumer} from "../../../Context/CartContext";
 export default function ItemDetailContainer() {
+    const { addItem } = CartConsumer()
     const [movie, setMovie] = useState(null)
     const { id } = useParams()
-    let itemsSelected = 0
     async function getFilmData() {
         const resp = await fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
         const decodeResp = await resp.json()
         setMovie(decodeResp)
     }
-    function getSelectedItems(items) {
-        itemsSelected = items
+    function getSelectedItems(itemsCount) {
+        addItem(movie, itemsCount)
     }
     useEffect(() => {
         getFilmData()

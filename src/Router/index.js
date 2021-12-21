@@ -3,17 +3,20 @@ import ItemListContainer from "../Components/Item/ItemListContainer";
 import ItemDetailContainer from "../Components/Item/ItemDetail/ItemDetailContainer";
 import NavBar from "../Components/NavBar";
 import Cart from "../Pages/Cart";
+import {CarritoProvider} from "../Context/CartContext";
 
 export default function AppRouter() {
     return (
         <BrowserRouter>
-            <NavBar />
-            <Routes >
-                <Route path="/" element={<ItemListContainer />} />
-                <Route path="/category/categorias-sin-definir" element={<ItemListContainer />} />
-                <Route path="/item/:id" element={<ItemDetailContainer />} />
-                <Route path="/cart" element={<Cart />} />
-            </Routes>
+            <CarritoProvider>
+                <NavBar/>
+                <Routes>
+                    <Route path="/" element={<ItemListContainer/>}/>
+                    <Route path="/category/categorias-sin-definir" element={<ItemListContainer/>}/>
+                    <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                    <Route path="/cart" element={<Cart/>}/>
+                </Routes>
+            </CarritoProvider>
         </BrowserRouter>
     )
 }

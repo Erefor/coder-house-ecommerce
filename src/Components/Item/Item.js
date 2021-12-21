@@ -3,7 +3,10 @@ import ItemCount from "./ItemCount";
 import './Item.css'
 import {useEffect, useState} from "react";
 import { Link } from 'react-router-dom'
+import {CartConsumer} from "../../Context/CartContext";
+
 export default function Item({item}) {
+    const { addItem } = CartConsumer()
     const [image, setImage] = useState('https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png')
     async function getMovieImage() {
         try {
@@ -13,6 +16,9 @@ export default function Item({item}) {
         } catch (e) {
             setImage('https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png')
         }
+    }
+    function getSelectedItems(itemsCount) {
+            addItem(item, itemsCount)
     }
     useEffect(() => {
         getMovieImage()
@@ -25,7 +31,7 @@ export default function Item({item}) {
                 <img src={image} alt="Movie" className="movie-image"/>
                 <h4 className="movie-price">{`$${item.release_date}.00`}</h4>
             </Link>
-            <ItemCount stock={parseInt(item.running_time, 10)}/>
+            <ItemCount stock={parseInt(item.running_time, 10)} onAdd={getSelectedItems}/>
         </div>
     )
 }

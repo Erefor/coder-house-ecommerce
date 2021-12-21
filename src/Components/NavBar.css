@@ -29,3 +29,9 @@ a:hover{
     border-bottom: solid 2px #282c34;
 }
 h1{ margin: 0 }
+
+.cart-widget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
