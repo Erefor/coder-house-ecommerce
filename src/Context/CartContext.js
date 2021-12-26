@@ -21,19 +21,17 @@ function CarritoProvider({children}) {
 
     }
 
-    function clearCartitems() {
+    function clearCartItems() {
         setCart([])
     }
 
     function removeItem(item) {
-        const ephemeralArray = cart
-        const index = cart.findIndex(e => e.id === item.id)
-        ephemeralArray.splice(index, 1)
+        const ephemeralArray = cart.filter(e => e.id !== item)
         setCart(ephemeralArray)
     }
     return (
         // eslint-disable-next-line react/jsx-pascal-case
-        <CartContext.Provider value={{cart, setCart, addItem}}>
+        <CartContext.Provider value={{cart, setCart, addItem, clearCartItems, removeItem}}>
             {children}
         </CartContext.Provider>
     )

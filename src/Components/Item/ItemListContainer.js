@@ -1,6 +1,7 @@
 import './ItemListContainer.css'
 import {useEffect, useState} from "react";
 import ItemList from "./itemList";
+import SSpiner from "../Atoms/SSpinner";
 
 export default function ItemListContainer({greeting, items}) {
     const [movies, setMovies] = useState([])
@@ -13,9 +14,9 @@ export default function ItemListContainer({greeting, items}) {
         setTimeout(() => getMovies(), 2000)
     }, [])
     return (
-        <div className="item-list-container">
+         movies.length ? (<div className="item-list-container">
             <h3>{greeting}</h3>
             <ItemList items={movies}/>
-        </div>
+        </div>) : (<SSpiner />)
     )
 }
