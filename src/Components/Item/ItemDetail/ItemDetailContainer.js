@@ -5,14 +5,17 @@ import {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import ItemCount from "../ItemCount";
 import {CartConsumer} from "../../../Context/CartContext";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import db from "../../../Servides/Firebase";
 export default function ItemDetailContainer() {
     const { addItem } = CartConsumer()
     const [movie, setMovie] = useState(null)
     const { id } = useParams()
     async function getFilmData() {
-        const resp = await fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
-        const decodeResp = await resp.json()
-        setMovie(decodeResp)
+        const q = query(collection(db,'movies'), where("id", "==", id))
+        getDocs(q).then(e => {
+            setMovie(e.docs[0].data())
+        })
     }
     function getSelectedItems(itemsCount) {
         addItem(movie, itemsCount)

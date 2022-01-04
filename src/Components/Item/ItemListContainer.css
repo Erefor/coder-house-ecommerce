@@ -8,3 +8,6 @@
     justify-content: center;
     gap: 25px;
 }
+.noResults{
+    margin: 130px;
+}

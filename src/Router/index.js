@@ -12,7 +12,7 @@ export default function AppRouter() {
                 <NavBar/>
                 <Routes>
                     <Route path="/" element={<ItemListContainer/>}/>
-                    <Route path="/category/categorias-sin-definir" element={<ItemListContainer/>}/>
+                    <Route path="/category/:selectedCategory" element={<ItemListContainer/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                     <Route path="/cart" element={<Cart/>}/>
                 </Routes>
