@@ -11,6 +11,11 @@
     font-weight: 600;
     border: none;
 }
+.light{
+    color: aliceblue;
+    background-color: transparent;
+    border: solid 1px aliceblue;
+}
 
 /*Border radius*/
 .normal{ border-radius: 3px; }

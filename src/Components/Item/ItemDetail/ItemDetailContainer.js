@@ -6,7 +6,7 @@ import ItemDetail from "./ItemDetail";
 import ItemCount from "../ItemCount";
 import {CartConsumer} from "../../../Context/CartContext";
 import { getDocs, collection, query, where } from "firebase/firestore";
-import db from "../../../Servides/Firebase";
+import db from "../../../Services/Firebase";
 export default function ItemDetailContainer() {
     const { addItem } = CartConsumer()
     const [movie, setMovie] = useState(null)

@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from "react";
 import ItemList from "./itemList";
 import SSpiner from "../Atoms/SSpinner";
 import {getDocs, collection, query, where} from "firebase/firestore";
-import db from "../../Servides/Firebase";
+import db from "../../Services/Firebase";
 import { useLocation, useParams } from "react-router-dom";
 
 export default function ItemListContainer({greeting, items}) {

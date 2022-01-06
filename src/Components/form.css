@@ -1,0 +1,24 @@
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #282c34;
+    width: 50%;
+}
+input{
+    width: 230px;
+    outline: none;
+    height: 30px;
+    border-radius: 3px;border: none;
+}
+label{ color: aliceblue; }
+h3{ color: aliceblue; }
+.s-mt-12{ margin-top: 12px }
+.s-mb-12{ margin-bottom: 12px }
+@media (max-width: 750px){
+    form{
+        width: 100%;
+    }
+}
+
