@@ -13,6 +13,7 @@
     height: 300px;
     width: 350px;
     overflow: hidden;
+    cursor: pointer;
 }
 .movie-image{
     position: absolute;

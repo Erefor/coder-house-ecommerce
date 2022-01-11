@@ -26,7 +26,7 @@ export default function Form({total, cartItems, clearCart}) {
             await addDoc(col, sellData)
             clearCart()
             navigate('/')
-            alert(`Se realiza compra de forma exitosa`)
+            alert(`Se ha realiza compra de forma exitosa`)
             return
         }
         alert('Verifica los campos')

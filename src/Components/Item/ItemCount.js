@@ -4,7 +4,8 @@ import {useState} from "react";
 
 export default function ItemCount({stock, initial, onAdd}) {
     const [count, setInitialCount] = useState(initial ?? 0)
-    function add() {
+    function add(event) {
+        event.stopPropagation()
         if (stock !== 0) {
             if (count >= stock) {
                 setInitialCount(stock)
@@ -13,7 +14,8 @@ export default function ItemCount({stock, initial, onAdd}) {
             setInitialCount(count+1)
         }
     }
-    function remove() {
+    function remove(event) {
+        event.stopPropagation()
         if (count <= 0) {
             setInitialCount(0)
             return
@@ -21,16 +23,17 @@ export default function ItemCount({stock, initial, onAdd}) {
         setInitialCount(count-1)
     }
 
-    function emitCount() {
+    function emitCount(event) {
+        event.stopPropagation()
         onAdd(count)
     }
     return <div className="itemCount">
         <div className="buttons">
-            <SButton clickFunction={remove} text="Remover" variant="primary"/>
+            <SButton clickFunction={(e) => remove(e)} text="Remover" variant="primary"/>
             <p>{`Stock ${stock ?? 0}`}</p>
-            <SButton clickFunction={add} text="Agregar" variant="primary"/>
+            <SButton clickFunction={(e) => add(e)} text="Agregar" variant="primary"/>
         </div>
         <p><strong>{count}</strong></p>
-        <SButton text="Agregar al carrito" clickFunction={emitCount}/>
+        <SButton text="Agregar al carrito" clickFunction={(e) => emitCount(e)}/>
     </div>;
 }
