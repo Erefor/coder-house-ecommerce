@@ -1,5 +1,7 @@
 # Ecommerce App / Salvador García
 
+El deploy de la aplicación es el siguiente: [Deploy](https://ecommerce-garcia.netlify.app/)
+
 ## Nota sobre esta aplicación
 
 Este proyecto fue realizado sin partir de un sistema de diseño, así que es muy probable que la interfaz sea incómoda. Adicional a esto, esta aplicación fue creada utilizando [React](https://es.reactjs.org/) y  [Firebase](https://firebase.google.com/).
