@@ -29,9 +29,13 @@ function CarritoProvider({children}) {
         const ephemeralArray = cart.filter(e => e.id !== item)
         setCart(ephemeralArray)
     }
+    function isInCart(item) {
+        const itemFind = cart.find(e => e.id === item.id)
+        return !!itemFind
+    }
     return (
         // eslint-disable-next-line react/jsx-pascal-case
-        <CartContext.Provider value={{cart, setCart, addItem, clearCartItems, removeItem}}>
+        <CartContext.Provider value={{cart, setCart, addItem, clearCartItems, removeItem, isInCart}}>
             {children}
         </CartContext.Provider>
     )

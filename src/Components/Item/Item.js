@@ -4,10 +4,11 @@ import './Item.css'
 import {useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom'
 import {CartConsumer} from "../../Context/CartContext";
+import SButton from "../Atoms/SButton";
 
 export default function Item({item}) {
     const navigate = useNavigate()
-    const { addItem } = CartConsumer()
+    const { addItem, isInCart } = CartConsumer()
     const [image, setImage] = useState('https://farm5.staticflickr.com/4363/36346283311_74018f6e7d_o.png')
     async function getMovieImage() {
         try {
@@ -26,8 +27,11 @@ export default function Item({item}) {
     }
     useEffect(() => {
         getMovieImage()
-
     }, [])
+    function goToCart(e) {
+        e.stopPropagation()
+        navigate(`/cart`)
+    }
     return (
         <div  className="item" onClick={goToItemDetail}>
             <div className="title-container">
@@ -35,7 +39,11 @@ export default function Item({item}) {
                 <img src={image} alt="Movie" className="movie-image"/>
                 <h4 className="movie-price">{`$${item.release_date}.00`}</h4>
             </div>
-            <ItemCount stock={parseInt(item.running_time, 10)} onAdd={getSelectedItems}/>
+            {
+                isInCart(item) ?
+                    <SButton clickFunction={goToCart} text="Ir al carrito"/> :
+                    <ItemCount stock={parseInt(item.running_time, 10)} onAdd={getSelectedItems}/>
+            }
         </div>
     )
 }

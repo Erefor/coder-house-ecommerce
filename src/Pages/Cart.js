@@ -24,6 +24,7 @@ export default function Cart() {
             (<div className="cart-page-container">
                 <Form clearCart={clearCartItems} cartItems={cart} total={totalPrice} />
             <ul className="items-selected-list">
+                <SButton clickFunction={clearCartItems} variant="light" text="LimpiarCarrito" />
                 {cart.map(({original_title_romanised, itemsSelected, release_date, id}) =>
                     (<li key={id}>
                         {`Titulo: ${original_title_romanised || 'Sin titulo'}, Cantidad: ${itemsSelected || 'Sin cantidad'}, Precio $${parseInt(release_date)}.00`}
@@ -34,7 +35,7 @@ export default function Cart() {
         </div>)
             :
             (<div className="cart-page-container">
-                <h1>No hay items</h1>
+                <h1 className="no-items-msg">No hay items</h1>
                 <Link to="/">Ir a inicio</Link>
             </div>)
     )

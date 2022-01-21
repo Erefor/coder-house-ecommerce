@@ -23,10 +23,11 @@ export default function Form({total, cartItems, clearCart}) {
                 total,
             }
             const col = collection(db, 'tickets')
-            await addDoc(col, sellData)
+            const resp = await addDoc(col, sellData)
+            const {id} = resp
+            alert(`Se ha realiza compra de forma exitosa, tu número de orden es el siguiente: ${id}`)
             clearCart()
             navigate('/')
-            alert(`Se ha realiza compra de forma exitosa`)
             return
         }
         alert('Verifica los campos')

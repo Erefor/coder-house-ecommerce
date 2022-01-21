@@ -1,14 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './ItemDetailContainer.css'
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import ItemCount from "../ItemCount";
 import {CartConsumer} from "../../../Context/CartContext";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import db from "../../../Services/Firebase";
+import SButton from "../../Atoms/SButton";
 export default function ItemDetailContainer() {
-    const { addItem } = CartConsumer()
+    const { addItem, isInCart } = CartConsumer()
+    const navigate = useNavigate()
     const [movie, setMovie] = useState(null)
     const { id } = useParams()
     async function getFilmData() {
@@ -24,9 +26,11 @@ export default function ItemDetailContainer() {
         getFilmData()
     }, [])
     return (
-        <div className="item-detail-container">
-            {movie && (<ItemDetail movieData={movie}/>)}
-            {movie && <ItemCount stock={parseInt(movie.running_time, 10)} onAdd={getSelectedItems}/>}
+        movie && <div className="item-detail-container">
+            <ItemDetail movieData={movie}/>
+            { !isInCart(movie) ?
+                    <ItemCount stock={parseInt(movie.running_time, 10)} onAdd={getSelectedItems}/>
+                    : <SButton clickFunction={() => navigate('/cart')} text="Ir al carrito" /> }
         </div>
     )
 }

@@ -32,6 +32,9 @@
     justify-content: center;align-items: center;
     flex-direction: column;
 }
+.no-items-msg{
+    color: aliceblue;
+}
 @media (max-width: 750px){
     .cart-page-container{
         height: 800px;

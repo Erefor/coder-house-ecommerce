@@ -1,6 +1,7 @@
 import SButton from "../Atoms/SButton";
 import './ItemCount.css'
 import {useState} from "react";
+import { useParams } from 'react-router-dom'
 
 export default function ItemCount({stock, initial, onAdd}) {
     const [count, setInitialCount] = useState(initial ?? 0)
@@ -27,7 +28,8 @@ export default function ItemCount({stock, initial, onAdd}) {
         event.stopPropagation()
         onAdd(count)
     }
-    return <div className="itemCount">
+    const { id} = useParams()
+    return id ? <div className="itemCount">
         <div className="buttons">
             <SButton clickFunction={(e) => remove(e)} text="Remover" variant="primary"/>
             <p>{`Stock ${stock ?? 0}`}</p>
@@ -35,5 +37,5 @@ export default function ItemCount({stock, initial, onAdd}) {
         </div>
         <p><strong>{count}</strong></p>
         <SButton text="Agregar al carrito" clickFunction={(e) => emitCount(e)}/>
-    </div>;
+    </div> : <SButton text="Ver más"/>;
 }
